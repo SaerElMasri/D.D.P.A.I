@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FacialDetection"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/btnTakePicture"
+        android:layout_width="332dp"
+        android:layout_height="73dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#776E6E"
+        android:fontFamily="@font/inter"
+        android:letterSpacing="-0.05"
+        android:lineHeight="52sp"
+        android:text="Analyze"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/body_text"
+        android:layout_width="320dp"
+        android:layout_height="42dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="14dp"
+        android:fontFamily="@font/intermedium"
+        android:gravity="center_horizontal|top"
+        android:lineHeight="21sp"
+        android:lineSpacingExtra="3sp"
+        android:text="Please, hold your phone at eye level so that we can analyze your face accuraretly"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:translationY="1.46sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/backButtonFacial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="250dp"
+        android:background="@drawable/welcomepage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrowback" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/facedetection" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
