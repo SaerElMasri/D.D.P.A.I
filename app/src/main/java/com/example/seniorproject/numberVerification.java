@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -11,10 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.hbb20.CountryCodePicker;
+
 public class numberVerification extends AppCompatActivity {
 
     EditText phoneNumber;
     Button nextRegister;
+    CountryCodePicker ccp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class numberVerification extends AppCompatActivity {
 
         phoneNumber = findViewById(R.id.numberVerification);
         nextRegister = findViewById(R.id.verificationBtn);
+        ccp = findViewById(R.id.countryCode_picker);
 
         nextRegister.setOnClickListener(view -> {
             if(phoneNumber.equals("")){
@@ -34,5 +40,24 @@ public class numberVerification extends AppCompatActivity {
                 startActivity(new Intent(numberVerification.this, VerifiedNumber.class));
             }
         });
+    }
+
+    public void callVerifyOTPScreen(View view){
+
+        String getUserPhoneNumber = phoneNumber.getText().toString().trim();
+        String _phoneNo = "+" + ccp.getFullNumber() + getUserPhoneNumber;
+
+        Intent intent = new Intent(numberVerification.this, VerifiedNumber.class);
+
+        //Pass the phone number to the next activity
+        intent.putExtra("phoneNo",_phoneNo);
+
+    }
+
+    private boolean isValidPhoneNumber(CharSequence phoneNumber) {
+        if (!TextUtils.isEmpty(phoneNumber)) {
+            return Patterns.PHONE.matcher(phoneNumber).matches();
+        }
+        return false;
     }
 }

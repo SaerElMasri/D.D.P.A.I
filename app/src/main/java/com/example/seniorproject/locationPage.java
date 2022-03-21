@@ -35,5 +35,6 @@ public class locationPage extends FragmentActivity implements OnMapReadyCallback
         map.addMarker(new MarkerOptions().position(AUST).title("American University of Science and Technology"));
         map.moveCamera(CameraUpdateFactory.newLatLng(AUST));
 
+
     }
 }

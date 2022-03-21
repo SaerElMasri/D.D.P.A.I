@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".numberVerification"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:ignore="MissingClass">
 
 
     <TextView
@@ -70,6 +71,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryCode_picker"
+        android:layout_width="300dp"
+        android:layout_height="53.73dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/black_border"
+        app:ccp_autoDetectCountry="true"
+
+        app:ccp_showFlag="true"
+        app:ccp_showFullName="true"
+        app:ccp_showNameCode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/enterPhone"
         android:layout_width="139dp"
@@ -93,20 +110,20 @@
 
     <EditText
         android:id="@+id/numberVerification"
-        android:layout_width="332dp"
+        android:layout_width="300dp"
         android:layout_height="53.73dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="380dp"
-        android:layout_marginEnd="32dp"
-        android:background="#F5F6FA"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="45dp"
+        android:background="@drawable/black_border"
         android:hint="Your phone number"
         android:inputType="phone"
         android:textColor="@color/black"
         android:textColorHint="#303037"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
