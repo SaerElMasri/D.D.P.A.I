@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="FirstPageColor">#FF897E</color>
     <color name="ButtonColor">#314BCE</color>
-
+    <color name="BackgroundColorNumber">#F5F6FA</color>
 </resources>

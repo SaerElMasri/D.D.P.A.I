@@ -61,7 +61,7 @@ public class ImpairedRegistration extends AppCompatActivity {
                 }else if(noProb.isChecked()){
                     hearingProblems = noProb.getText().toString();
                 }
-                startActivity(new Intent(ImpairedRegistration.this, PermissionPage.class));
+                startActivity(new Intent(ImpairedRegistration.this, numberVerification.class));
             }
         });
 

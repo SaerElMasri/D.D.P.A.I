@@ -20,6 +20,8 @@ public class numberVerification extends AppCompatActivity {
     EditText phoneNumber;
     Button nextRegister;
     CountryCodePicker ccp;
+    String _phoneNo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,31 +35,24 @@ public class numberVerification extends AppCompatActivity {
         nextRegister = findViewById(R.id.verificationBtn);
         ccp = findViewById(R.id.countryCode_picker);
 
+
+
+
+
+
         nextRegister.setOnClickListener(view -> {
-            if(phoneNumber.equals("")){
+            if(phoneNumber.getText().toString().isEmpty()){
                 Toast.makeText(getApplicationContext(), "Please fill the required information", Toast.LENGTH_SHORT).show();
             }else{
-                startActivity(new Intent(numberVerification.this, VerifiedNumber.class));
+
+                //_phoneNo = "+"+ccp.getFullNumber() + getUserPhoneNumber;
+
+                Intent intent = new Intent(numberVerification.this, VerifiedNumber.class);
+
+                //Pass the phone number to the next activity
+                intent.putExtra("phoneNo",phoneNumber.getText().toString().trim());
+                startActivity(intent);
             }
         });
-    }
-
-    public void callVerifyOTPScreen(View view){
-
-        String getUserPhoneNumber = phoneNumber.getText().toString().trim();
-        String _phoneNo = "+" + ccp.getFullNumber() + getUserPhoneNumber;
-
-        Intent intent = new Intent(numberVerification.this, VerifiedNumber.class);
-
-        //Pass the phone number to the next activity
-        intent.putExtra("phoneNo",_phoneNo);
-
-    }
-
-    private boolean isValidPhoneNumber(CharSequence phoneNumber) {
-        if (!TextUtils.isEmpty(phoneNumber)) {
-            return Patterns.PHONE.matcher(phoneNumber).matches();
-        }
-        return false;
     }
 }

@@ -70,8 +70,10 @@ public class RegistrationPage extends AppCompatActivity {
                             password.setText("");
                             confirmPassword.setText("");
                     }else{
-                        Toast.makeText(getApplicationContext(), "Email already registered", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                         }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Email already registered", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast errorToast = Toast.makeText(RegistrationPage.this, "Passwords do not match", Toast.LENGTH_SHORT);
