@@ -42,13 +42,13 @@ public class RegistrationPage extends AppCompatActivity {
         haveAccount = findViewById(R.id.loginRegistration);
         databaseHelper = new DatabaseHelper(this);
 
-
+        //Change the data type from the text boxes
         fullName.setInputType(InputType.TYPE_CLASS_TEXT);
         email.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         confirmPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-
+        //Registration back-end process
         button.setOnClickListener(view -> {
             String fullNameUser = fullName.getText().toString();
             String emailUser = email.getText().toString();
@@ -60,18 +60,18 @@ public class RegistrationPage extends AppCompatActivity {
                 if(passUser.equals(confirmPass)){
                     Boolean checkEmail = databaseHelper.CheckEmail(emailUser);
                     if(checkEmail == true){
-                        Boolean insert = databaseHelper.Insert(fullNameUser,emailUser, passUser);
-                        if(insert == true){
+                        Intent intent = new Intent(RegistrationPage.this, ImpairedRegistration.class);
 
-                            startActivity(new Intent(RegistrationPage.this, ImpairedRegistration.class));
+                        //Send all user's data to save them after taking the phone number
+                        intent.putExtra("username", fullNameUser);
+                        intent.putExtra("emailUser",emailUser);
+                        intent.putExtra("userPass", passUser);
+                        startActivity(intent);
 
-                            fullName.setText("");
-                            email.setText("");
-                            password.setText("");
-                            confirmPassword.setText("");
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-                        }
+                        fullName.setText("");
+                        email.setText("");
+                        password.setText("");
+                        confirmPassword.setText("");
                     }else{
                         Toast.makeText(getApplicationContext(), "Email already registered", Toast.LENGTH_SHORT).show();
                     }
@@ -89,6 +89,7 @@ public class RegistrationPage extends AppCompatActivity {
         });
 
 
+        //Jump to the login page
         haveAccount.setOnClickListener(view -> startActivity(new Intent(RegistrationPage.this, loginPage.class)));
     }
 }

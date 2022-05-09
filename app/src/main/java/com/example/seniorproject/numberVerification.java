@@ -15,12 +15,14 @@ import android.widget.Toast;
 
 import com.hbb20.CountryCodePicker;
 
+import java.text.BreakIterator;
+
 public class numberVerification extends AppCompatActivity {
 
     EditText phoneNumber;
     Button nextRegister;
-    CountryCodePicker ccp;
-    String _phoneNo;
+    DatabaseHelper db;
+    String fullName, emailUser, pass, _phoneNo;
 
 
     @Override
@@ -33,25 +35,32 @@ public class numberVerification extends AppCompatActivity {
 
         phoneNumber = findViewById(R.id.numberVerification);
         nextRegister = findViewById(R.id.verificationBtn);
-        ccp = findViewById(R.id.countryCode_picker);
+        db = new DatabaseHelper(this);
 
 
+        //Getting the email from the registration activity to be able to save the phone number into the database
+        fullName = getIntent().getStringExtra("username");
+        emailUser = getIntent().getStringExtra("emailUser");
+        pass = getIntent().getStringExtra("userPass");
 
-
-
-
+        //Number verification back-end process using Firebase approach
         nextRegister.setOnClickListener(view -> {
-            if(phoneNumber.getText().toString().isEmpty()){
+
+            //Getting the phone number from the user
+            _phoneNo = phoneNumber.getText().toString();
+
+            if(_phoneNo.trim().equals("")){
                 Toast.makeText(getApplicationContext(), "Please fill the required information", Toast.LENGTH_SHORT).show();
             }else{
-
-                //_phoneNo = "+"+ccp.getFullNumber() + getUserPhoneNumber;
-
-                Intent intent = new Intent(numberVerification.this, VerifiedNumber.class);
-
-                //Pass the phone number to the next activity
-                intent.putExtra("phoneNo",phoneNumber.getText().toString().trim());
-                startActivity(intent);
+                boolean dataInserted = db.Insert(fullName, emailUser, pass, _phoneNo);
+                if(dataInserted == true){
+                    Intent i = new Intent(numberVerification.this, VerifiedNumber.class);
+                    Toast.makeText(getApplicationContext(), "User saved successfully", Toast.LENGTH_SHORT).show();
+                    i.putExtra("phoneNo",_phoneNo.trim());
+                    startActivity(i);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

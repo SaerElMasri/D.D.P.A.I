@@ -22,7 +22,8 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/font/font.xml" value="0.25076923076923074" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/font/inter.xml" value="0.25076923076923074" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_add_contact_page.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_contact_page.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_contact.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_contact_page.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_description1.xml" value="0.22" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_description2.xml" value="0.22" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_description3.xml" value="0.22" />
@@ -33,17 +34,20 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_login_successful.xml" value="0.17089755213055305" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_main_page.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_main_page.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_number_verification.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_permission_page.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_registration_done.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_registration_page.xml" value="0.22" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_reset_password.xml" value="0.21" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_set_up_page.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_setting_profile_page.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_share_location_page.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_test_page.xml" value="0.5" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_update_contact.xml" value="0.19414414414414413" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_verified_number.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/activity_welcome_page.xml" value="0.17" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SeniorProject/app/src/main/res/layout/my_row.xml" value="0.25" />
       </map>
     </option>
   </component>

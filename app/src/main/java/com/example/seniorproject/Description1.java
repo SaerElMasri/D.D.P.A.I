@@ -26,8 +26,10 @@ public class Description1 extends AppCompatActivity {
         skip = findViewById(R.id.click);
         next = findViewById(R.id.buttonNext);
 
+        //Next screen which is Description 2
         next.setOnClickListener(view -> startActivity(new Intent(Description1.this, Description2.class)));
 
+        //Skip to the registration part
         skip.setOnClickListener(view -> startActivity(new Intent(Description1.this, RegistrationPage.class)));
 
 

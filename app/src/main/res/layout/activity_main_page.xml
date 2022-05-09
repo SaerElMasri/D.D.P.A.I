@@ -9,6 +9,60 @@
 
 
     <TextView
+        android:id="@+id/testText2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/inter"
+        android:gravity="center_vertical"
+        android:letterSpacing="-0.08"
+        android:lineHeight="20sp"
+        android:lineSpacingExtra="0sp"
+        android:text="Test Record"
+        android:textColor="@color/black"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/testButton"
+        app:layout_constraintEnd_toEndOf="@+id/testButton"
+        app:layout_constraintStart_toStartOf="@+id/testButton"
+        app:layout_constraintTop_toTopOf="@+id/testButton" />
+
+   <ImageView
+       android:id="@+id/imageView22"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="100dp"
+       android:layout_marginTop="35dp"
+       android:layout_marginEnd="12dp"
+       android:layout_marginBottom="15dp"
+       app:layout_constraintBottom_toBottomOf="@+id/testButton"
+       app:layout_constraintEnd_toEndOf="@+id/testButton"
+       app:layout_constraintStart_toStartOf="@+id/testButton"
+       app:layout_constraintTop_toTopOf="@+id/testButton"
+       app:srcCompat="@drawable/clipboard" />
+
+    <ImageView
+        android:id="@+id/logOutBtn"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="680dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/FirstPageColor"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+   <TextView
         android:id="@+id/greetingUser"
         android:layout_width="150dp"
         android:layout_height="60dp"
@@ -215,27 +269,50 @@
         app:layout_constraintTop_toTopOf="@+id/contactButton" />
 
     <TextView
-        android:id="@+id/testText"
+        android:id="@+id/logOutText"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/inter"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:letterSpacing="-0.08"
         android:lineHeight="20sp"
         android:lineSpacingExtra="0sp"
-        android:text="Test Record"
+        android:text="Log out session"
         android:textColor="@color/black"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="@+id/testButton"
-        app:layout_constraintEnd_toEndOf="@+id/testButton"
-        app:layout_constraintStart_toStartOf="@+id/testButton"
-        app:layout_constraintTop_toTopOf="@+id/testButton" />
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logOutBtn"
+        app:layout_constraintEnd_toEndOf="@+id/logOutBtn"
+        app:layout_constraintStart_toStartOf="@+id/logOutBtn"
+        app:layout_constraintTop_toTopOf="@+id/logOutBtn" />
+
+   <TextView
+       android:id="@+id/testText"
+       android:layout_width="100dp"
+       android:layout_height="50dp"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       android:layout_marginStart="15dp"
+       android:layout_marginTop="16dp"
+       android:layout_marginEnd="36dp"
+       android:layout_marginBottom="16dp"
+       android:fontFamily="@font/inter"
+       android:gravity="center_vertical"
+       android:letterSpacing="-0.08"
+       android:lineHeight="20sp"
+       android:lineSpacingExtra="0sp"
+       android:text="Test Record"
+       android:textColor="@color/black"
+       android:textSize="21sp"
+       app:layout_constraintBottom_toBottomOf="@+id/testButton"
+       app:layout_constraintEnd_toEndOf="@+id/testButton"
+       app:layout_constraintStart_toStartOf="@+id/testButton"
+       app:layout_constraintTop_toTopOf="@+id/testButton" />
 
     <TextView
         android:id="@+id/locationText"
@@ -351,5 +428,8 @@
        app:layout_constraintHorizontal_bias="0.508"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

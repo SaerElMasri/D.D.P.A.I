@@ -25,6 +25,9 @@ public class ImpairedRegistration extends AppCompatActivity {
     String prescriptionGlass = "";
     String hearingProblems = "";
 
+    //Variables for data from intent
+    String fullName, email, pass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,12 @@ public class ImpairedRegistration extends AppCompatActivity {
         withProb = findViewById(R.id.yes);
         noProb = findViewById(R.id.dont);
         nextRegister = findViewById(R.id.next);
+
+        //Getting the intent extra from the intent
+        fullName = getIntent().getStringExtra("username");
+        email = getIntent().getStringExtra("emailUser");
+        pass = getIntent().getStringExtra("userPass");
+
 
         nextRegister.setOnClickListener(view -> {
             String info1 = information1.getText().toString();
@@ -61,7 +70,12 @@ public class ImpairedRegistration extends AppCompatActivity {
                 }else if(noProb.isChecked()){
                     hearingProblems = noProb.getText().toString();
                 }
-                startActivity(new Intent(ImpairedRegistration.this, numberVerification.class));
+
+                Intent intent = new Intent(ImpairedRegistration.this, numberVerification.class);
+                intent.putExtra("username", fullName);
+                intent.putExtra("emailUser",email);
+                intent.putExtra("userPass", pass);
+                startActivity(intent);
             }
         });
 

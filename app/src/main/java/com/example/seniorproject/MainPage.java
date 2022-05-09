@@ -23,6 +23,8 @@ public class MainPage extends AppCompatActivity {
     ImageView contactBtn;
     ImageView testBtn;
     ImageView locationBtn;
+    ImageView logout;
+    String emailToSettingProfile;
 
     //private ProgressBar progressBarMainPage;
 
@@ -41,9 +43,12 @@ public class MainPage extends AppCompatActivity {
         contactBtn = findViewById(R.id.contactButton);
         testBtn = findViewById(R.id.testButton);
         locationBtn = findViewById(R.id.locationButton);
+        logout = findViewById(R.id.logOutBtn);
+
+        emailToSettingProfile = getIntent().getStringExtra("emailToChangeProfile");
+
+
         //progressBarMainPage = findViewById(R.id.progressBar);
-
-
 
         //Alcohol percentage taken from the Breathalyzer and stored it into the DB
         //Double alcoholPercentage = 0.0;
@@ -52,19 +57,39 @@ public class MainPage extends AppCompatActivity {
 
 
         //Setting button
-        settingButton.setOnClickListener(view -> startActivity(new Intent(MainPage.this, settingProfilePage.class)));
+        settingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainPage.this, settingProfilePage.class);
+
+                //Pass the phone number to the next activity
+                intent.putExtra("emailToChange",emailToSettingProfile);
+                startActivity(intent);
+            }
+        });
 
         //Set up button
         setupBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, setUpPage.class)));
 
         //Contact button
-        contactBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, contactPage.class)));
+        contactBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, contactActivity.class)));
 
         //Show test taken button
         testBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, testPage.class)));
 
         //Location button
         locationBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, locationPage.class)));
+
+        //Logout button
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(MainPage.this,loginPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }

@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
+        //Button to get start in the app
         getStartButton = findViewById(R.id.button);
-
         getStartButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Description1.class)));
     }
 

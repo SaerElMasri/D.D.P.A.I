@@ -63,53 +63,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/didn_t_not_"
-        android:layout_width="155dp"
-        android:layout_height="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="435dp"
-        android:layout_marginEnd="200dp"
-        android:fontFamily="@font/intermedium"
-        android:gravity="top"
-        android:letterSpacing="-0.02"
-        android:lineHeight="25sp"
-        android:lineSpacingExtra="9sp"
-        android:text="Didn't received the code?"
-        android:textColor="@color/black"
-        android:textSize="13sp"
-        android:translationY="4.63sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/resend"
-        android:layout_width="86dp"
-        android:layout_height="24dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="435dp"
-        android:layout_marginEnd="133dp"
-        android:clickable="true"
-        android:fontFamily="@font/intermedium"
-        android:gravity="top"
-        android:letterSpacing="-0.02"
-        android:lineHeight="25sp"
-        android:lineSpacingExtra="9sp"
-        android:text="Resend Code"
-        android:textColor="@color/FirstPageColor"
-        android:textSize="13sp"
-        android:translationY="4.63sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-
     <Button
         android:id="@+id/buttonContinueVerification"
         android:layout_width="332dp"
@@ -123,14 +76,13 @@
         android:fontFamily="@font/inter"
         android:letterSpacing="-0.02"
         android:text="Continue"
-        android:onClick="callNextScreenFromOTP"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/codeFromSms"
         android:layout_width="332dp"
         android:layout_height="73dp"
@@ -142,7 +94,7 @@
         android:letterSpacing="0.05"
         android:text=""
         android:textColor="@color/black"
-        android:textSize="60dp"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

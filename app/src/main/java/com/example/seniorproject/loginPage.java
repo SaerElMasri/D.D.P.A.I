@@ -14,14 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.Executor;
+
 public class loginPage extends AppCompatActivity {
 
+    //Variables
     EditText userEmail;
     EditText userPassword;
     TextView forgotPassword;
     Button loginButton;
     TextView registerNewUser;
     DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class loginPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login_page);
 
+        //Hook up for the layout
         userEmail = findViewById(R.id.editTextEmailLog);
         userPassword = findViewById(R.id.editTextPasswordLog);
         forgotPassword = findViewById(R.id.forgot_pass);
@@ -46,8 +51,10 @@ public class loginPage extends AppCompatActivity {
 
             Boolean checkLogin = databaseHelper.CheckLogin(email, password);
             if(checkLogin == true){
-                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(loginPage.this, LoginSuccessful.class));
+                Intent i = new Intent(loginPage.this, LoginSuccessful.class);
+                //Send the email to the setting profile activity to update data from the database
+                i.putExtra("emailToChangeProfile", email);
+                startActivity(i);
             }else {
                 Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
             }

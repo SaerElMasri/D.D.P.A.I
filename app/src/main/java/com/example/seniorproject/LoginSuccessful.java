@@ -12,6 +12,7 @@ import android.widget.Button;
 public class LoginSuccessful extends AppCompatActivity {
 
     Button successLog;
+    String emailToSettingProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,21 @@ public class LoginSuccessful extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login_successful);
 
+
+        emailToSettingProfile = getIntent().getStringExtra("emailToChangeProfile");
+
         successLog = findViewById(R.id.successLog);
-        successLog.setOnClickListener(view ->
-                startActivity(new Intent(LoginSuccessful.this, MainPage.class))
 
+        successLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginSuccessful.this, MainPage.class);
 
-        );
+                //Pass the phone number to the next activity
+                intent.putExtra("emailToChangeProfile",emailToSettingProfile);
+                startActivity(intent);
+            }
+        });
+
     }
 }

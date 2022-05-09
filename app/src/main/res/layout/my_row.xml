@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/mainLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/contactName_text"
+                android:layout_width="145dp"
+                android:layout_height="33dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="160dp"
+                android:fontFamily="@font/interlight"
+                android:gravity="center_horizontal|top"
+                android:letterSpacing="-0.02"
+                android:lineHeight="38sp"
+                android:text="NameOne"
+                android:textColor="@color/black"
+                android:textSize="27sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/contactNumber_text"
+                android:layout_width="127dp"
+                android:layout_height="21dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="172dp"
+                android:fontFamily="@font/interlight"
+                android:gravity="center_horizontal|top"
+                android:letterSpacing="-0.03"
+                android:lineHeight="21sp"
+                android:text="PhoneNumber"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contactName_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

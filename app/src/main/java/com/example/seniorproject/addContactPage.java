@@ -18,6 +18,7 @@ public class addContactPage extends AppCompatActivity {
     EditText contactName;
     EditText contactPhoneNumber;
     Button addContactBtn;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +32,34 @@ public class addContactPage extends AppCompatActivity {
         contactName = findViewById(R.id.nameContact);
         contactPhoneNumber = findViewById(R.id.phoneContact);
         addContactBtn = findViewById(R.id.addContactBtn);
+        db = new DatabaseHelper(this);
 
         //Return to contactPage.java
-        returnPage.setOnClickListener(view -> startActivity(new Intent(addContactPage.this, contactPage.class)));
+        returnPage.setOnClickListener(view -> startActivity(new Intent(addContactPage.this, contactActivity.class)));
 
         //Add or edit contacts from the database
         addContactBtn.setOnClickListener(view -> {
             String nameContact = contactName.getText().toString();
             String phoneContact = contactPhoneNumber.getText().toString();
-            int phoneNumberContact = Integer.parseInt(phoneContact);
 
-            //Code to add the contact into the database and to be display in the contactPage.java
+            if(!nameContact.isEmpty() && !phoneContact.isEmpty()){
+                Boolean checkContact = db.checkAlreadyExitsContact(phoneContact);
+                if(checkContact == true){
+                    Toast.makeText(getApplicationContext(), "Contact already saved", Toast.LENGTH_LONG).show();
+                }else{
+                    Boolean contactAdded = db.InsertContact(nameContact, phoneContact);
+                    if(contactAdded == true){
+                        Toast.makeText(getApplicationContext(), "Contact saved successfully", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(addContactPage.this, contactActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error saving the contact", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }else{
+                Toast.makeText(getApplicationContext(), "Please fill the required information", Toast.LENGTH_LONG).show();
 
-            //After inserting or editing a phone number display a toast msg
-            Toast.makeText(getApplicationContext(), "Contact add/edited successfully", Toast.LENGTH_LONG).show();
-
-
+            }
         });
     }
 }

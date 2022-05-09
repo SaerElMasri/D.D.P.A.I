@@ -44,8 +44,8 @@
 
     <ImageView
         android:id="@+id/whatsapp_im"
-        android:layout_width="91dp"
-        android:layout_height="79dp"
+        android:layout_width="130dp"
+        android:layout_height="117dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="134dp"
@@ -55,26 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/person" />
-
-    <TextView
-        android:id="@+id/changePhotoProfile"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="100dp"
-        android:clickable="true"
-        android:fontFamily="@font/intermedium"
-        android:gravity="top"
-        android:lineHeight="22sp"
-        android:text="Change Profile Picture"
-        android:textColor="#151940"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name"
@@ -155,7 +135,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/phoneText"
+        android:id="@+id/passText"
         android:layout_width="100dp"
         android:layout_height="15dp"
         android:layout_centerHorizontal="true"
@@ -167,7 +147,7 @@
         android:gravity="left"
         android:lineHeight="15sp"
         android:lineSpacingExtra="0sp"
-        android:text="Phone Number"
+        android:text="Password"
         android:textColor="#151940"
         android:textSize="12sp"
         android:translationY="0.21sp"
@@ -177,7 +157,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/phoneChangeProfile"
+        android:id="@+id/passChangeProfile"
         android:layout_width="300dp"
         android:layout_height="48.55dp"
         android:layout_alignParentLeft="true"

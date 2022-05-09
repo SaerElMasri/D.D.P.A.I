@@ -30,7 +30,6 @@ import java.util.concurrent.TimeUnit;
 public class VerifiedNumber extends AppCompatActivity {
 
     ImageButton returnPage;
-    TextView resendCode;
     TextView verificationSMS;
     Button continueRegister;
     String codeBySystem;
@@ -47,21 +46,30 @@ public class VerifiedNumber extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_verified_number);
 
+        //Firebase instance
         mAuth = FirebaseAuth.getInstance();
 
         returnPage = findViewById(R.id.returnPag);
-        resendCode = findViewById(R.id.resend);
+
         verificationSMS = findViewById(R.id.codeFromSms);
         continueRegister = findViewById(R.id.buttonContinueVerification);
 
         _phoneNo = getIntent().getStringExtra("phoneNo");
 
+        //Actual method to verify the phone number and jump to the next activity automatically
         sendVerificationCodeToUser(_phoneNo);
+
+        //Temporary button to bypass this phone verification
+        continueRegister.setOnClickListener(view -> {
+            Intent i = new Intent(VerifiedNumber.this, FacialDetection.class);
+            startActivity(i);
+        });
 
         returnPage.setOnClickListener(view -> startActivity(new Intent(VerifiedNumber.this, numberVerification.class)));
 
     }
 
+    //The following code are from the Firebase documentation to connect to firebase, get the code and verify it
     private void sendVerificationCodeToUser(String phoneNo) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+961" + phoneNo,
@@ -112,7 +120,6 @@ public class VerifiedNumber extends AppCompatActivity {
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(getApplicationContext(), "Verification Not Completed! Try Again",Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     }

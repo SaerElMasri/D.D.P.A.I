@@ -1,8 +1,14 @@
 package com.example.seniorproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -14,9 +20,6 @@ import android.widget.Toast;
 
 public class PermissionPage extends AppCompatActivity {
 
-    CheckBox locationBox;
-    CheckBox cameraBox;
-    CheckBox contactBox;
     CheckBox policyBox;
     Button continueButton;
 
@@ -28,17 +31,9 @@ public class PermissionPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_permission_page);
 
-        locationBox = findViewById(R.id.checkBoxLocation);
-        cameraBox = findViewById(R.id.checkBoxCamera);
-        contactBox = findViewById(R.id.checkBoxContacts);
+
         policyBox = findViewById(R.id.policyBox);
         continueButton = findViewById(R.id.buttonContinuePermission);
-
-
-
-        continueButton.setOnClickListener(view -> {
-            startActivity(new Intent(PermissionPage.this, FacialDetection.class));
-        });
 
     }
 }

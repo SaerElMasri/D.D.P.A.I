@@ -11,13 +11,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ForgotPassword extends AppCompatActivity {
 
-    EditText email;
+    EditText emailForgotPass;
     Button sendButton;
     ImageButton returnButton;
-
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +30,29 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         returnButton = findViewById(R.id.backButtonForgotPass);
-        email = findViewById(R.id.editTextEmailForgotPass);
+        emailForgotPass = findViewById(R.id.editTextEmailForgotPass);
         sendButton = findViewById(R.id.sendButtonForgotPass);
+        databaseHelper = new DatabaseHelper(this);
 
-        email.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        emailForgotPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
 
 
         sendButton.setOnClickListener(view -> {
-            String emailUser = email.getText().toString();
+            String emailToCheck = emailForgotPass.getText().toString();
+            if(!emailToCheck.isEmpty()){
+                Boolean checkEmail = databaseHelper.checkAlreadyExist(emailToCheck);
+                if(checkEmail == true){
+                    Toast.makeText(ForgotPassword.this, "User found", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ForgotPassword.this, ResetPassword.class);
+                    intent.putExtra("emailToForgotPass", emailToCheck);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(ForgotPassword.this, "User does not exists", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(ForgotPassword.this, "Please fill up the required information", Toast.LENGTH_SHORT).show();
+            }
 
-            //Send a link to change the password
         });
 
         returnButton.setOnClickListener(view -> startActivity(new Intent(ForgotPassword.this, loginPage.class)));
