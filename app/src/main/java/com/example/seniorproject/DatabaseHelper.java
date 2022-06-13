@@ -7,14 +7,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
-import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public static final String DATABASE_NAME = "login.db";
     private static final int DATABASE_VERSION = 1;
-    private Context context;
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-
+    //Insert user's data into User Table
     public boolean Insert(String fullName, String email, String password, String phone){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -43,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("password", password);
         contentValues.put("phoneNumber", phone);
-        long result = sqLiteDatabase.insert("   user", null, contentValues);
+        long result = sqLiteDatabase.insert("user", null, contentValues);
         if(result == -1){
             return false;
         }else{
@@ -51,6 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //User insert its contacts' data into the Contact Table
     public boolean InsertContact(String name, String phone){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -64,14 +64,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Update Password
     public void updatePassword(String email, String NewPassword){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("password", NewPassword);
         db.update("user", contentValues, "email=?", new String[]{email});
-
     }
 
+    //Update Contact
     public Boolean updateContact(String originalContactPhone, String newContactName, String newContactPhone) {
         // calling a method to get writable database.
         SQLiteDatabase db = this.getWritableDatabase();
@@ -92,6 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Delete Contact
     public Boolean deleteOneContact(String phone){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete("contacts", "contactPhone=?", new String[]{phone});
@@ -103,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    //Check Email
     public Boolean CheckEmail(String email){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         String query = "SELECT * FROM user WHERE email =?";
@@ -115,6 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Check if the email is already in the Database
     public Boolean checkAlreadyExist(String email) {
         try {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -135,6 +139,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //Check if the contact is already in the database
     public Boolean checkAlreadyExitsContact(String phone) {
         try {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -155,6 +160,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //Read all data from contact database to use them into the activity to display them for the user
     Cursor readAllData(){
         String query = "SELECT * FROM contacts";
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -165,6 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //Check the login
     public Boolean CheckLogin(String email, String password){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE email=? AND password=?", new String[]{email, password});

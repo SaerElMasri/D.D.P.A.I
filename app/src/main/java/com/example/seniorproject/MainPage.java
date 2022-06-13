@@ -72,7 +72,14 @@ public class MainPage extends AppCompatActivity {
         setupBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, setUpPage.class)));
 
         //Contact button
-        contactBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, contactActivity.class)));
+        contactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainPage.this, contactActivity.class);
+                intent.putExtra("emailToChange",emailToSettingProfile);
+                startActivity(intent);
+            }
+        });
 
         //Show test taken button
         testBtn.setOnClickListener(view -> startActivity(new Intent(MainPage.this, testPage.class)));

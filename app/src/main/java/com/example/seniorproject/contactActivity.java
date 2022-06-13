@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -44,7 +45,6 @@ public class contactActivity extends AppCompatActivity {
 
 
         returnPage.setOnClickListener(view -> startActivity(new Intent(contactActivity.this, MainPage.class)));
-
         addContactBtn.setOnClickListener(view -> startActivity(new Intent(contactActivity.this, addContactPage.class)));
 
         storeDataInArray();

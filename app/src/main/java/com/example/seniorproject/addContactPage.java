@@ -34,6 +34,7 @@ public class addContactPage extends AppCompatActivity {
         addContactBtn = findViewById(R.id.addContactBtn);
         db = new DatabaseHelper(this);
 
+
         //Return to contactPage.java
         returnPage.setOnClickListener(view -> startActivity(new Intent(addContactPage.this, contactActivity.class)));
 
@@ -58,7 +59,6 @@ public class addContactPage extends AppCompatActivity {
                 }
             }else{
                 Toast.makeText(getApplicationContext(), "Please fill the required information", Toast.LENGTH_LONG).show();
-
             }
         });
     }
